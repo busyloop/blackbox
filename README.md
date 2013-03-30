@@ -1,4 +1,4 @@
-# Blackbox [![Build Status](https://travis-ci.org/busyloop/blackbox.png?branch=master)](https://travis-ci.org/busyloop/blackbox) [![Dependency Status](https://gemnasium.com/busyloop/blackbox.png)](https://gemnasium.com/busyloop/blackbox)
+# Blackbox [![Build Status](https://travis-ci.org/busyloop/blackbox.png?branch=master)](https://travis-ci.org/busyloop/blackbox)
 
 Various little helpers.
 
