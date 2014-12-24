@@ -1,11 +1,6 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/moe/code/blackbox/lib/blackbox/version.rb": [
-        1,
-        1,
-        null
-      ],
       "/home/moe/code/blackbox/lib/blackbox/crypto.rb": [
         1,
         1,
@@ -178,6 +173,6 @@
         null
       ]
     },
-    "timestamp": 1364605976
+    "timestamp": 1419394994
   }
 }

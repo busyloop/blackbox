@@ -1,7 +1,7 @@
 module BB
   # Hash utilities.
   module Hash
-    class << self 
+    class << self
       # Symbolize all top level keys.
       #
       # @param [Hash] hash Input hash
@@ -31,10 +31,10 @@ module BB
       # @return [Hash] Output hash (flattened)
       def flatten_prop_style(input={}, opts={}, output={})
         input.each do |key, value|
-          key = opts[:prefix].nil? ? "#{key}" : "#{opts[:prefix]}#{opts[:delimiter]||"."}#{key}"
+          key = opts[:prefix].nil? ? "#{key}" : "#{opts[:prefix]}#{opts[:delimiter]||'.'}#{key}"
           case value
           when ::Hash
-            flatten_prop_style(value, {:prefix => key, :delimiter => "."}, output)
+            flatten_prop_style(value, opts.merge({:prefix => key}), output)
           when Array
             output[key] = value.join(',')
           else
