@@ -445,8 +445,7 @@ format in the <code>options</code> hash.</p>
 77
 78
 79
-80
-81</pre>
+80</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/blackbox/number.rb', line 45</span>
@@ -483,9 +482,8 @@ format in the <code>options</code> hash.</p>
       <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_escaped_separator'>escaped_separator</span><span class='embexpr_end'>}</span><span class='tstring_content'>)(\d*[1-9])?0+\z</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\1\2</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_escaped_separator'>escaped_separator</span><span class='embexpr_end'>}</span><span class='tstring_content'>\z</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
       <span class='id identifier rubyid_storage_units_format'>storage_units_format</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>%n</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='id identifier rubyid_formatted_number'>formatted_number</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>%u</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='id identifier rubyid_unit'>unit</span><span class='rparen'>)</span>
     <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
-      <span class='id identifier rubyid_e'>e</span>
-      <span class='comment'>#number
-</span>    <span class='kw'>end</span>
+      <span class='id identifier rubyid_number'>number</span>
+    <span class='kw'>end</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -644,6 +642,7 @@ format in the <code>options</code> hash.</p>
       <pre class="lines">
 
 
+149
 150
 151
 152
@@ -656,11 +655,10 @@ format in the <code>options</code> hash.</p>
 159
 160
 161
-162
-163</pre>
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blackbox/number.rb', line 150</span>
+      <pre class="code"><span class="info file"># File 'lib/blackbox/number.rb', line 149</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_with_delimiter'>with_delimiter</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='const'>BB</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_symbolize_keys'>symbolize_keys</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -848,6 +846,7 @@ customize the format in the <code>options</code> hash.</p>
       <pre class="lines">
 
 
+108
 109
 110
 111
@@ -862,11 +861,10 @@ customize the format in the <code>options</code> hash.</p>
 120
 121
 122
-123
-124</pre>
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blackbox/number.rb', line 109</span>
+      <pre class="code"><span class="info file"># File 'lib/blackbox/number.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_with_precision'>with_precision</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='const'>BB</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_symbolize_keys'>symbolize_keys</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -894,7 +892,7 @@ customize the format in the <code>options</code> hash.</p>
 </div>
 
     <div id="footer">
-  Generated on Sun Nov 22 18:28:37 2015 by
+  Generated on Sun Nov 22 18:31:14 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.5.2 (ruby-2.2.2).
 </div>
