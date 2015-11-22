@@ -6,7 +6,7 @@ describe BB::String do
     it "strips a few common escape sequences" do
       have = "\e[31;1mX\e[AY\e[2JZ"
       want = "XYZ"
-      BB::String.strip_ansi(have).should == want
+      expect(BB::String.strip_ansi(have)).to eq(want)
     end
   end
 end

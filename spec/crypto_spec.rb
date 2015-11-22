@@ -28,25 +28,25 @@ describe BB::Crypto do
           it "can decrypt what it encrypted (short string, random iv)" do
             ct = BB::Crypto.send(m_enc, TEST_TEXT_SHORT, TEST_KEY, cipher)
             pt = BB::Crypto.send(m_dec, ct, TEST_KEY, cipher)
-            pt.should == TEST_TEXT_SHORT
+            expect(pt).to eq(TEST_TEXT_SHORT)
           end
 
           it "can decrypt what it encrypted (long string, random iv)" do
             ct = BB::Crypto.send(m_enc, TEST_TEXT_LONG, TEST_KEY, cipher)
             pt = BB::Crypto.send(m_dec, ct, TEST_KEY, cipher)
-            pt.should == TEST_TEXT_LONG
+            expect(pt).to eq(TEST_TEXT_LONG)
           end
 
           it "can decrypt what it encrypted (long string, static iv)" do
             ct = BB::Crypto.send(m_enc, TEST_TEXT_LONG, TEST_KEY, cipher, TEST_IV)
             pt = BB::Crypto.send(m_dec, ct, TEST_KEY, cipher, TEST_IV)
-            pt.should == TEST_TEXT_LONG
+            expect(pt).to eq(TEST_TEXT_LONG)
           end
 
           it "returns consistent output with static iv" do
             a = BB::Crypto.send(m_enc, TEST_TEXT_SHORT, TEST_KEY, cipher, TEST_IV)
             b = BB::Crypto.send(m_enc, TEST_TEXT_SHORT, TEST_KEY, cipher, TEST_IV)
-            a.should == b
+            expect(a).to eq(b)
           end
         end
       end

@@ -6,14 +6,14 @@ describe BB::Hash do
     it "turns all keys into symbols" do
       have = { 'foo' => 1, :bar => 2, 'batz' => 3 }
       want = { :foo => 1, :bar => 2, :batz => 3 }
-      BB::Hash.symbolize_keys(have).should == want
+      expect(BB::Hash.symbolize_keys(have)).to eq(want)
     end
 
     it "raises NoMethodError when #to_sym fails for a key" do
-      lambda {
+      expect {
         have = { 'foo' => 1, 2 => 2, :bar => 3 }
         BB::Hash.symbolize_keys(have)
-      }.should raise_error NoMethodError
+      }.to raise_error NoMethodError
     end
   end
 
@@ -44,7 +44,7 @@ describe BB::Hash do
        "nested_with_array.b.bb"=>"a,b,3",
        "nested_with_array.c.cc"=>"a,b,3"
       }
-      BB::Hash::flatten_prop_style(have).should == want
+      expect(BB::Hash::flatten_prop_style(have)).to eq(want)
     end
   end
 end
