@@ -1,0 +1,903 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: BB::Number
+  
+    &mdash; Documentation by YARD 0.8.5.2
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (N)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../BB.html" title="BB (module)">BB</a></span></span>
+     &raquo; 
+    <span class="title">Number</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: BB::Number
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/blackbox/number.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>String utilities.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="STORAGE_UNITS-constant" class="">STORAGE_UNITS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>byte</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>k</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>M</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>G</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>T</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>P</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>E</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Z</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Y</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_human_size-class_method" title="to_human_size (class method)">+ (String) <strong>to_human_size</strong>(number, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Formats the bytes in <code>size</code> into a more understandable
+representation (e.g., giving it 1500 yields 1.5 KB).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#with_delimiter-class_method" title="with_delimiter (class method)">+ (String) <strong>with_delimiter</strong>(number, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Formats a <code>number</code> with grouped thousands using
+<code>delimiter</code> (e.g., 12,324).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#with_precision-class_method" title="with_precision (class method)">+ (String) <strong>with_precision</strong>(number, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Formats a <code>number</code> with the specified level of
+<code>:precision</code> (e.g., 112.32 has a precision of 2).</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="to_human_size-class_method">
+  
+    + (<tt><span class='object_link'><a href="String.html" title="BB::String (module)">String</a></span></tt>) <strong>to_human_size</strong>(number, options = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Formats the bytes in <code>size</code> into a more understandable
+representation (e.g., giving it 1500 yields 1.5 KB). This method is useful
+for reporting file sizes to users. This method returns nil if
+<code>size</code> cannot be converted into a number. You can customize the
+format in the <code>options</code> hash.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_to_human_size'>to_human_size</span><span class='lparen'>(</span><span class='int'>123</span><span class='rparen'>)</span>                                          <span class='comment'># =&gt; 123 Bytes
+</span><span class='id identifier rubyid_to_human_size'>to_human_size</span><span class='lparen'>(</span><span class='int'>1234</span><span class='rparen'>)</span>                                         <span class='comment'># =&gt; 1.2 KB
+</span><span class='id identifier rubyid_to_human_size'>to_human_size</span><span class='lparen'>(</span><span class='int'>12345</span><span class='rparen'>)</span>                                        <span class='comment'># =&gt; 12.1 KB
+</span><span class='id identifier rubyid_to_human_size'>to_human_size</span><span class='lparen'>(</span><span class='int'>1234567</span><span class='rparen'>)</span>                                      <span class='comment'># =&gt; 1.2 MB
+</span><span class='id identifier rubyid_to_human_size'>to_human_size</span><span class='lparen'>(</span><span class='int'>1234567890</span><span class='rparen'>)</span>                                   <span class='comment'># =&gt; 1.1 GB
+</span><span class='id identifier rubyid_to_human_size'>to_human_size</span><span class='lparen'>(</span><span class='int'>1234567890123</span><span class='rparen'>)</span>                                <span class='comment'># =&gt; 1.1 TB
+</span><span class='id identifier rubyid_to_human_size'>to_human_size</span><span class='lparen'>(</span><span class='int'>1234567</span><span class='comma'>,</span> <span class='symbol'>:precision</span> <span class='op'>=&gt;</span> <span class='int'>2</span><span class='rparen'>)</span>                     <span class='comment'># =&gt; 1.18 MB
+</span><span class='id identifier rubyid_to_human_size'>to_human_size</span><span class='lparen'>(</span><span class='int'>483989</span><span class='comma'>,</span> <span class='symbol'>:precision</span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='rparen'>)</span>                      <span class='comment'># =&gt; 473 KB
+</span><span class='id identifier rubyid_to_human_size'>to_human_size</span><span class='lparen'>(</span><span class='int'>1234567</span><span class='comma'>,</span> <span class='symbol'>:precision</span> <span class='op'>=&gt;</span> <span class='int'>2</span><span class='comma'>,</span> <span class='symbol'>:separator</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>  <span class='comment'># =&gt; 1,18 MB</span></code></pre>
+    
+  </div>
+
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>number</span>
+      
+      
+        <span class='type'>(<tt>Fixnum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Number value to format.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Hash.html" title="BB::Hash (module)">Hash</a></span></tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Options for formatter.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>options</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:precision</span>
+          <span class="type">(<tt>Fixnum</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>1</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>Sets the level of precision.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:separator</span>
+          <span class="type">(<tt><span class='object_link'><a href="String.html" title="BB::String (module)">String</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>&quot;.&quot;</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>Sets the separator between the units.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:delimiter</span>
+          <span class="type">(<tt><span class='object_link'><a href="String.html" title="BB::String (module)">String</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>&quot;&quot;</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>Sets the thousands delimiter.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:kilo</span>
+          <span class="type">(<tt><span class='object_link'><a href="String.html" title="BB::String (module)">String</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>1024</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>Sets the number of bytes in a kilobyte.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:format</span>
+          <span class="type">(<tt><span class='object_link'><a href="String.html" title="BB::String (module)">String</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>&quot;%n %u&quot;</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>Sets the display format.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="BB::String (module)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The formatted representation of bytes</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/blackbox/number.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_human_size'>to_human_size</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='const'>BB</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_symbolize_keys'>symbolize_keys</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_precision'>precision</span> <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:precision</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_separator'>separator</span> <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:separator</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_delimiter'>delimiter</span> <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:delimiter</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_kilo'>kilo</span>      <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:kilo</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='int'>1024</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_storage_units_format'>storage_units_format</span> <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:format</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%n%u</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_kilo'>kilo</span>
+    <span class='comment'>#unit = I18n.translate(:&#39;number.human.storage_units.units.byte&#39;, :locale =&gt; options[:locale], :count =&gt; number.to_i, :raise =&gt; true)
+</span>    <span class='id identifier rubyid_storage_units_format'>storage_units_format</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>%n</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>%u</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_max_exp'>max_exp</span>  <span class='op'>=</span> <span class='const'>STORAGE_UNITS</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>-</span> <span class='int'>1</span>
+    <span class='id identifier rubyid_number'>number</span>   <span class='op'>=</span> <span class='const'>Float</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_exponent'>exponent</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='id identifier rubyid_kilo'>kilo</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='comment'># Convert to base 1024
+</span>    <span class='id identifier rubyid_exponent'>exponent</span> <span class='op'>=</span> <span class='id identifier rubyid_max_exp'>max_exp</span> <span class='kw'>if</span> <span class='id identifier rubyid_exponent'>exponent</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_max_exp'>max_exp</span> <span class='comment'># we need this to avoid overflow for the highest unit
+</span>    <span class='id identifier rubyid_number'>number</span>  <span class='op'>/=</span> <span class='id identifier rubyid_kilo'>kilo</span> <span class='op'>**</span> <span class='id identifier rubyid_exponent'>exponent</span>
+
+    <span class='id identifier rubyid_unit'>unit</span> <span class='op'>=</span> <span class='const'>STORAGE_UNITS</span><span class='lbracket'>[</span><span class='id identifier rubyid_exponent'>exponent</span><span class='rbracket'>]</span>
+
+    <span class='kw'>begin</span>
+      <span class='id identifier rubyid_escaped_separator'>escaped_separator</span> <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id identifier rubyid_escape'>escape</span><span class='lparen'>(</span><span class='id identifier rubyid_separator'>separator</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_formatted_number'>formatted_number</span> <span class='op'>=</span> <span class='id identifier rubyid_with_precision'>with_precision</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span>
+        <span class='symbol'>:precision</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_precision'>precision</span><span class='comma'>,</span>
+        <span class='symbol'>:separator</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_separator'>separator</span><span class='comma'>,</span>
+        <span class='symbol'>:delimiter</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_delimiter'>delimiter</span>
+      <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_escaped_separator'>escaped_separator</span><span class='embexpr_end'>}</span><span class='tstring_content'>)(\d*[1-9])?0+\z</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\1\2</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_escaped_separator'>escaped_separator</span><span class='embexpr_end'>}</span><span class='tstring_content'>\z</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_storage_units_format'>storage_units_format</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>%n</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='id identifier rubyid_formatted_number'>formatted_number</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>%u</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='id identifier rubyid_unit'>unit</span><span class='rparen'>)</span>
+    <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
+      <span class='id identifier rubyid_e'>e</span>
+      <span class='comment'>#number
+</span>    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="with_delimiter-class_method">
+  
+    + (<tt><span class='object_link'><a href="String.html" title="BB::String (module)">String</a></span></tt>) <strong>with_delimiter</strong>(number, options = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Formats a <code>number</code> with grouped thousands using
+<code>delimiter</code> (e.g., 12,324). You can customize the format in the
+<code>options</code> hash.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_with_delimiter'>with_delimiter</span><span class='lparen'>(</span><span class='int'>12345678</span><span class='rparen'>)</span>                        <span class='comment'># =&gt; 12,345,678
+</span><span class='id identifier rubyid_with_delimiter'>with_delimiter</span><span class='lparen'>(</span><span class='float'>12345678.05</span><span class='rparen'>)</span>                     <span class='comment'># =&gt; 12,345,678.05
+</span><span class='id identifier rubyid_with_delimiter'>with_delimiter</span><span class='lparen'>(</span><span class='int'>12345678</span><span class='comma'>,</span> <span class='symbol'>:delimiter</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>     <span class='comment'># =&gt; 12.345.678
+</span><span class='id identifier rubyid_with_delimiter'>with_delimiter</span><span class='lparen'>(</span><span class='int'>12345678</span><span class='comma'>,</span> <span class='symbol'>:separator</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>,</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>     <span class='comment'># =&gt; 12,345,678
+</span><span class='id identifier rubyid_with_delimiter'>with_delimiter</span><span class='lparen'>(</span><span class='float'>98765432.98</span><span class='comma'>,</span> <span class='symbol'>:delimiter</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:separator</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>,</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt; 98 765 432,98</span></code></pre>
+    
+  </div>
+
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>number</span>
+      
+      
+        <span class='type'>(<tt>Fixnum</tt>, <tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Number value to format.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Hash.html" title="BB::Hash (module)">Hash</a></span></tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Options for formatter.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>options</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:delimiter</span>
+          <span class="type">(<tt><span class='object_link'><a href="String.html" title="BB::String (module)">String</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>&quot;</tt>, <tt>&quot;</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>Sets the thousands delimiter.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:separator</span>
+          <span class="type">(<tt><span class='object_link'><a href="String.html" title="BB::String (module)">String</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>&quot;.&quot;</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>Sets the separator between the units.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="BB::String (module)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The formatted representation of the number.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/blackbox/number.rb', line 150</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_with_delimiter'>with_delimiter</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='const'>BB</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_symbolize_keys'>symbolize_keys</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_delimiter'>delimiter</span> <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:delimiter</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_separator'>separator</span> <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:separator</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+  <span class='kw'>begin</span>
+    <span class='id identifier rubyid_parts'>parts</span> <span class='op'>=</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_parts'>parts</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_gsub!'>gsub!</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(\d)(?=(\d\d\d)+(?!\d))</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\\1</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_delimiter'>delimiter</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_parts'>parts</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_separator'>separator</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span>
+    <span class='id identifier rubyid_number'>number</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="with_precision-class_method">
+  
+    + (<tt><span class='object_link'><a href="String.html" title="BB::String (module)">String</a></span></tt>) <strong>with_precision</strong>(number, options = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Formats a <code>number</code> with the specified level of
+<code>:precision</code> (e.g., 112.32 has a precision of 2). You can
+customize the format in the <code>options</code> hash.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_with_precision'>with_precision</span><span class='lparen'>(</span><span class='float'>111.2345</span><span class='rparen'>)</span>                    <span class='comment'># =&gt; 111.235
+</span><span class='id identifier rubyid_with_precision'>with_precision</span><span class='lparen'>(</span><span class='float'>111.2345</span><span class='comma'>,</span> <span class='symbol'>:precision</span> <span class='op'>=&gt;</span> <span class='int'>2</span><span class='rparen'>)</span>   <span class='comment'># =&gt; 111.23
+</span><span class='id identifier rubyid_with_precision'>with_precision</span><span class='lparen'>(</span><span class='int'>13</span><span class='comma'>,</span> <span class='symbol'>:precision</span> <span class='op'>=&gt;</span> <span class='int'>5</span><span class='rparen'>)</span>         <span class='comment'># =&gt; 13.00000
+</span><span class='id identifier rubyid_with_precision'>with_precision</span><span class='lparen'>(</span><span class='float'>389.32314</span><span class='comma'>,</span> <span class='symbol'>:precision</span> <span class='op'>=&gt;</span> <span class='int'>0</span><span class='rparen'>)</span>  <span class='comment'># =&gt; 389
+</span><span class='id identifier rubyid_with_precision'>with_precision</span><span class='lparen'>(</span><span class='float'>1111.2345</span><span class='comma'>,</span> <span class='symbol'>:precision</span> <span class='op'>=&gt;</span> <span class='int'>2</span><span class='comma'>,</span> <span class='symbol'>:separator</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:delimiter</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='comment'># =&gt; 1.111,23</span></code></pre>
+    
+  </div>
+
+  <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>number</span>
+      
+      
+        <span class='type'>(<tt>Fixnum</tt>, <tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Number value to format.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Hash.html" title="BB::Hash (module)">Hash</a></span></tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Options for formatter.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>options</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:precision</span>
+          <span class="type">(<tt>Fixnum</tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>3</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>Sets the level of precision.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:separator</span>
+          <span class="type">(<tt><span class='object_link'><a href="String.html" title="BB::String (module)">String</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>&quot;.&quot;</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>Sets the separator between the units.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:delimiter</span>
+          <span class="type">(<tt><span class='object_link'><a href="String.html" title="BB::String (module)">String</a></span></tt>)</span>
+          <span class="default">
+            
+              &mdash; default:
+              <tt>&quot;&quot;</tt>
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>Sets the thousands delimiter.</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+
+</div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="String.html" title="BB::String (module)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The formatted representation of the number.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/blackbox/number.rb', line 109</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_with_precision'>with_precision</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='const'>BB</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_symbolize_keys'>symbolize_keys</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_precision'>precision</span> <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:precision</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='int'>3</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_separator'>separator</span> <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:separator</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_delimiter'>delimiter</span> <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:delimiter</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+  <span class='kw'>begin</span>
+    <span class='id identifier rubyid_rounded_number'>rounded_number</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='const'>Float</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='int'>10</span> <span class='op'>**</span> <span class='id identifier rubyid_precision'>precision</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='int'>10</span> <span class='op'>**</span> <span class='id identifier rubyid_precision'>precision</span>
+    <span class='id identifier rubyid_with_delimiter'>with_delimiter</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%01.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_precision'>precision</span><span class='embexpr_end'>}</span><span class='tstring_content'>f</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='id identifier rubyid_rounded_number'>rounded_number</span><span class='comma'>,</span>
+      <span class='symbol'>:separator</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_separator'>separator</span><span class='comma'>,</span>
+      <span class='symbol'>:delimiter</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_delimiter'>delimiter</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span>
+    <span class='id identifier rubyid_number'>number</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sun Nov 22 18:28:37 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.5.2 (ruby-2.2.2).
+</div>
+
+  </body>
+</html>
