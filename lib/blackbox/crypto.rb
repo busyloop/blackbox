@@ -4,7 +4,7 @@ require 'base64'
 module BB
   # Crypto utilities.
   module Crypto
-    class << self 
+    class << self
       # Encrypt a String.
       #
       # @param [String] plaintext Input String (plaintext)
@@ -13,18 +13,18 @@ module BB
       # @param [String] iv Initialization vector
       # @return [String] When iv == nil: iv_length+iv+ciphertext
       # @return [String] When iv != nil: ciphertext
-      def encrypt(plaintext, key, cipher_type='aes-256-cbc', iv=nil) 
-        aes = OpenSSL::Cipher::Cipher.new(cipher_type) 
-        aes.encrypt 
-        aes.key = key 
+      def encrypt(plaintext, key, cipher_type='aes-256-cbc', iv=nil)
+        cipher = OpenSSL::Cipher::Cipher.new(cipher_type)
+        cipher.encrypt
+        cipher.key = key
         if iv.nil?
-          iv = aes.random_iv
-          [iv.length].pack('C') + iv + aes.update(plaintext) + aes.final
+          iv = cipher.random_iv
+          [iv.length].pack('C') + iv + cipher.update(plaintext) + cipher.final
         else
-          aes.iv = iv
-          aes.update(plaintext) + aes.final
+          cipher.iv = iv
+          cipher.update(plaintext) + cipher.final
         end
-      end 
+      end
 
       # Decrypt a String.
       #
@@ -33,21 +33,21 @@ module BB
       # @param [String] cipher_type OpenSSL cipher
       # @param [String] iv Initialization vector
       # @return [String] Plaintext
-      def decrypt(ciphertext, key, cipher_type='aes-256-cbc', iv=nil) 
-        aes = OpenSSL::Cipher::Cipher.new(cipher_type) 
-        aes.decrypt 
-        aes.key = key 
+      def decrypt(ciphertext, key, cipher_type='aes-256-cbc', iv=nil)
+        cipher = OpenSSL::Cipher::Cipher.new(cipher_type)
+        cipher.decrypt
+        cipher.key = key
         if iv.nil?
           iv_len = ciphertext.slice!(0).unpack('C')[0]
           unless 0 == iv_len
-            aes.iv = ciphertext.slice!(0..iv_len-1)
+            cipher.iv = ciphertext.slice!(0..iv_len-1)
           end
         else
-          aes.iv = iv
+          cipher.iv = iv
         end
-        aes.update(ciphertext) + aes.final
-      end 
- 
+        cipher.update(ciphertext) + cipher.final
+      end
+
       # Encrypt a String and encode the resulting ciphertext to Base64.
       #
       # @param [String] plaintext Input String (plaintext)
@@ -56,7 +56,7 @@ module BB
       # @param [String] iv Initialization vector
       # @return [String] When iv == nil: base64(iv_length+iv+ciphertext)
       # @return [String] When iv != nil: base64(ciphertext)
-      def encrypt_base64(plaintext, key, cipher_type='aes-256-cbc', iv=nil) 
+      def encrypt_base64(plaintext, key, cipher_type='aes-256-cbc', iv=nil)
         Base64.strict_encode64(encrypt(plaintext, key, cipher_type, iv))
       end
 
@@ -67,7 +67,7 @@ module BB
       # @param [String] cipher_type OpenSSL cipher
       # @param [String] iv Initialization vector
       # @return [String] Plaintext
-      def decrypt_base64(ciphertext, key, cipher_type='aes-256-cbc', iv=nil) 
+      def decrypt_base64(ciphertext, key, cipher_type='aes-256-cbc', iv=nil)
         decrypt(Base64.decode64(ciphertext), key, cipher_type, iv)
       end
 
@@ -79,7 +79,7 @@ module BB
       # @param [String] iv Initialization vector
       # @return [String] When iv == nil: urlsafe_base64(iv_length+iv+ciphertext)
       # @return [String] When iv != nil: urlsafe_base64(ciphertext)
-      def encrypt_urlsafe_base64(plaintext, key, cipher_type='aes-256-cbc', iv=nil) 
+      def encrypt_urlsafe_base64(plaintext, key, cipher_type='aes-256-cbc', iv=nil)
         Base64.urlsafe_encode64(encrypt(plaintext, key, cipher_type, iv))
       end
 
@@ -90,10 +90,10 @@ module BB
       # @param [String] cipher_type OpenSSL cipher
       # @param [String] iv Initialization vector
       # @return [String] Plaintext
-      def decrypt_urlsafe_base64(ciphertext, key, cipher_type='aes-256-cbc', iv=nil) 
+      def decrypt_urlsafe_base64(ciphertext, key, cipher_type='aes-256-cbc', iv=nil)
         decrypt(Base64.urlsafe_decode64(ciphertext), key, cipher_type, iv)
       end
-    end 
+    end
   end
 end
 
