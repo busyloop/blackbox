@@ -74,8 +74,7 @@ module BB
              ).sub(/(#{escaped_separator})(\d*[1-9])?0+\z/, '\1\2').sub(/#{escaped_separator}\z/, '')
              storage_units_format.gsub(/%n/, formatted_number).gsub(/%u/, unit)
            rescue => e
-             e
-             #number
+             number
            end
          end
        end
