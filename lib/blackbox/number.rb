@@ -32,7 +32,7 @@ module BB
       # @return [String] The formatted representation of bytes
       #
       # @example
-      #   to_human_size(123)                                          # => 123 Bytes
+      #   to_human_size(123)                                          # => 123
       #   to_human_size(1234)                                         # => 1.2k
       #   to_human_size(12345)                                        # => 12.1k
       #   to_human_size(1234567)                                      # => 1.2M
