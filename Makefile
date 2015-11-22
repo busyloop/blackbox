@@ -12,6 +12,7 @@ doc:
 	bundle exec yardoc
 
 push: test doc
+	git add doc coverage README.md
 	git commit -m 'Documentation update' doc coverage README.md
 	git checkout gh-pages
 	git checkout master -- doc coverage
