@@ -15,11 +15,16 @@
       <script type="text/javascript" charset="utf-8" src="js/full_list.js"></script>
     
 
+    <title>Class List</title>
     <base id="base_target" target="_parent" />
   </head>
   <body>
     <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) {
+      var hasFrames = false;
+      try {
+        hasFrames = window.top.frames.main ? true : false;
+      } catch (e) { }
+      if (hasFrames) {
         document.getElementById('base_target').target = 'main';
         document.body.className = 'frames';
       }
@@ -44,8 +49,8 @@
       <div id="search">Search: <input type="text" /></div>
 
       <ul id="full_list" class="class">
-        <li><span class='object_link'><a href="top-level-namespace.html" title=" (root)">Top Level Namespace</a></span></li>
-<li><a class='toggle'></a> <span class='object_link'><a href="BB.html" title="BB (module)">BB</a></span><small class='search_info'>Top Level Namespace</small></li><ul><li><span class='object_link'><a href="BB/Crypto.html" title="BB::Crypto (module)">Crypto</a></span><small class='search_info'>BB</small></li><li><span class='object_link'><a href="BB/Hash.html" title="BB::Hash (module)">Hash</a></span><small class='search_info'>BB</small></li><li><span class='object_link'><a href="BB/Number.html" title="BB::Number (module)">Number</a></span><small class='search_info'>BB</small></li><li><span class='object_link'><a href="BB/String.html" title="BB::String (module)">String</a></span><small class='search_info'>BB</small></li></ul>
+        <li><span class='object_link'><a href="top-level-namespace.html" title="Top Level Namespace (root)">Top Level Namespace</a></span></li>
+<li><a class='toggle'></a> <span class='object_link'><a href="BB.html" title="BB (module)">BB</a></span><small class='search_info'>Top Level Namespace</small></li><ul><li><span class='object_link'><a href="BB/Crypto.html" title="BB::Crypto (module)">Crypto</a></span><small class='search_info'>BB</small></li><li><span class='object_link'><a href="BB/Gem.html" title="BB::Gem (module)">Gem</a></span><small class='search_info'>BB</small></li><li><span class='object_link'><a href="BB/Hash.html" title="BB::Hash (module)">Hash</a></span><small class='search_info'>BB</small></li><li><span class='object_link'><a href="BB/Number.html" title="BB::Number (module)">Number</a></span><small class='search_info'>BB</small></li><li><span class='object_link'><a href="BB/String.html" title="BB::String (module)">String</a></span><small class='search_info'>BB</small></li></ul>
 
       </ul>
     </div>
