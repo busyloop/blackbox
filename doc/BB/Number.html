@@ -6,18 +6,18 @@
 <title>
   Module: BB::Number
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!BB/Number.html";
 </script>
 
 
@@ -103,7 +103,7 @@
         <dt id="STORAGE_UNITS-constant" class="">STORAGE_UNITS =
           
         </dt>
-        <dd><pre class="code"><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>byte</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>k</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>M</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>G</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>T</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>P</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>E</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Z</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Y</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+        <dd><pre class="code"><span class='qwords_beg'>%w(</span><span class='tstring_content'>byte</span><span class='words_sep'> </span><span class='tstring_content'>k</span><span class='words_sep'> </span><span class='tstring_content'>M</span><span class='words_sep'> </span><span class='tstring_content'>G</span><span class='words_sep'> </span><span class='tstring_content'>T</span><span class='words_sep'> </span><span class='tstring_content'>P</span><span class='words_sep'> </span><span class='tstring_content'>E</span><span class='words_sep'> </span><span class='tstring_content'>Z</span><span class='words_sep'> </span><span class='tstring_content'>Y</span><span class='words_sep'>)</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
     </dl>
   
@@ -140,7 +140,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Formats the bytes in <code>size</code> into a more understandable
+<p>Formats the bytes in <code>number</code> into a more understandable
 representation (e.g., giving it 1500 yields 1.5k).</p>
 </div></span>
   
@@ -190,8 +190,8 @@ representation (e.g., giving it 1500 yields 1.5k).</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Formats a <code>number</code> with the specified level of
-<code>:precision</code> (e.g., 112.32 has a precision of 2).</p>
+<p>Formats a <code>number</code> with the specified level of :precision (e.g.,
+112.32 has a precision of 2).</p>
 </div></span>
   
 </li>
@@ -218,11 +218,11 @@ representation (e.g., giving it 1500 yields 1.5k).</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Formats the bytes in <code>size</code> into a more understandable
+<p>Formats the bytes in <code>number</code> into a more understandable
 representation (e.g., giving it 1500 yields 1.5k). This method is useful
 for reporting file sizes to users. This method returns nil if
-<code>size</code> cannot be converted into a number. You can customize the
-format in the <code>options</code> hash.</p>
+<code>number</code> cannot be converted into a number. You can customize
+the format in the <code>options</code> hash.</p>
 
 
   </div>
@@ -410,7 +410,6 @@ format in the <code>options</code> hash.</p>
       <pre class="lines">
 
 
-45
 46
 47
 48
@@ -444,13 +443,22 @@ format in the <code>options</code> hash.</p>
 76
 77
 78
-79</pre>
+79
+80
+81
+82
+83
+84</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blackbox/number.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/blackbox/number.rb', line 46</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_to_human_size'>to_human_size</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_to_human_size'>to_human_size</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+     <span class='const'>Float</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span>
+   <span class='kw'>rescue</span>
+     <span class='kw'>return</span> <span class='kw'>nil</span>
+   <span class='kw'>end</span>
 
   <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='const'>BB</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_symbolize_keys'>symbolize_keys</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
 
@@ -460,28 +468,28 @@ format in the <code>options</code> hash.</p>
   <span class='id identifier rubyid_kilo'>kilo</span>      <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:kilo</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='int'>1024</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_storage_units_format'>storage_units_format</span> <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:format</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%n%u</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
-  <span class='kw'>if</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_kilo'>kilo</span>
-    <span class='id identifier rubyid_storage_units_format'>storage_units_format</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>%n</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>%u</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_max_exp'>max_exp</span>  <span class='op'>=</span> <span class='const'>STORAGE_UNITS</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>-</span> <span class='int'>1</span>
-    <span class='id identifier rubyid_number'>number</span>   <span class='op'>=</span> <span class='const'>Float</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_exponent'>exponent</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='id identifier rubyid_kilo'>kilo</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='comment'># Convert to base
-</span>    <span class='id identifier rubyid_exponent'>exponent</span> <span class='op'>=</span> <span class='id identifier rubyid_max_exp'>max_exp</span> <span class='kw'>if</span> <span class='id identifier rubyid_exponent'>exponent</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_max_exp'>max_exp</span> <span class='comment'># we need this to avoid overflow for the highest unit
-</span>    <span class='id identifier rubyid_number'>number</span>  <span class='op'>/=</span> <span class='id identifier rubyid_kilo'>kilo</span> <span class='op'>**</span> <span class='id identifier rubyid_exponent'>exponent</span>
+  <span class='kw'>begin</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_kilo'>kilo</span>
+      <span class='id identifier rubyid_storage_units_format'>storage_units_format</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>%n</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>%u</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_max_exp'>max_exp</span>  <span class='op'>=</span> <span class='const'>STORAGE_UNITS</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>-</span> <span class='int'>1</span>
+      <span class='id identifier rubyid_number'>number</span>   <span class='op'>=</span> <span class='const'>Float</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_exponent'>exponent</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_log'>log</span><span class='lparen'>(</span><span class='id identifier rubyid_kilo'>kilo</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='comment'># Convert to base
+</span>      <span class='id identifier rubyid_exponent'>exponent</span> <span class='op'>=</span> <span class='id identifier rubyid_max_exp'>max_exp</span> <span class='kw'>if</span> <span class='id identifier rubyid_exponent'>exponent</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_max_exp'>max_exp</span> <span class='comment'># we need this to avoid overflow for the highest unit
+</span>      <span class='id identifier rubyid_number'>number</span>  <span class='op'>/=</span> <span class='id identifier rubyid_kilo'>kilo</span><span class='op'>**</span><span class='id identifier rubyid_exponent'>exponent</span>
 
-    <span class='id identifier rubyid_unit'>unit</span> <span class='op'>=</span> <span class='const'>STORAGE_UNITS</span><span class='lbracket'>[</span><span class='id identifier rubyid_exponent'>exponent</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_unit'>unit</span> <span class='op'>=</span> <span class='const'>STORAGE_UNITS</span><span class='lbracket'>[</span><span class='id identifier rubyid_exponent'>exponent</span><span class='rbracket'>]</span>
 
-    <span class='kw'>begin</span>
       <span class='id identifier rubyid_escaped_separator'>escaped_separator</span> <span class='op'>=</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id identifier rubyid_escape'>escape</span><span class='lparen'>(</span><span class='id identifier rubyid_separator'>separator</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_formatted_number'>formatted_number</span> <span class='op'>=</span> <span class='id identifier rubyid_with_precision'>with_precision</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span>
-        <span class='symbol'>:precision</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_precision'>precision</span><span class='comma'>,</span>
-        <span class='symbol'>:separator</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_separator'>separator</span><span class='comma'>,</span>
-        <span class='symbol'>:delimiter</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_delimiter'>delimiter</span>
-      <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_escaped_separator'>escaped_separator</span><span class='embexpr_end'>}</span><span class='tstring_content'>)(\d*[1-9])?0+\z</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\1\2</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_escaped_separator'>escaped_separator</span><span class='embexpr_end'>}</span><span class='tstring_content'>\z</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+                                        <span class='label'>precision:</span> <span class='id identifier rubyid_precision'>precision</span><span class='comma'>,</span>
+                                        <span class='label'>separator:</span> <span class='id identifier rubyid_separator'>separator</span><span class='comma'>,</span>
+                                        <span class='label'>delimiter:</span> <span class='id identifier rubyid_delimiter'>delimiter</span>
+                                       <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>(</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_escaped_separator'>escaped_separator</span><span class='embexpr_end'>}</span><span class='tstring_content'>)(\d*[1-9])?0+\z</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\1\2</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_escaped_separator'>escaped_separator</span><span class='embexpr_end'>}</span><span class='tstring_content'>\z</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
       <span class='id identifier rubyid_storage_units_format'>storage_units_format</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>%n</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='id identifier rubyid_formatted_number'>formatted_number</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>%u</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='id identifier rubyid_unit'>unit</span><span class='rparen'>)</span>
-    <span class='kw'>rescue</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
-      <span class='id identifier rubyid_number'>number</span>
     <span class='kw'>end</span>
+  <span class='kw'>rescue</span>
+    <span class='id identifier rubyid_number'>number</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -502,8 +510,9 @@ format in the <code>options</code> hash.</p>
   <div class="discussion">
     
 <p>Formats a <code>number</code> with grouped thousands using
-<code>delimiter</code> (e.g., 12,324). You can customize the format in the
-<code>options</code> hash.</p>
+<code>delimiter</code> (e.g., 12,324). This method returns nil if
+<code>number</code> cannot be converted into a number. You can customize
+the format in the <code>options</code> hash.</p>
 
 
   </div>
@@ -583,7 +592,7 @@ format in the <code>options</code> hash.</p>
           <span class="default">
             
               &mdash; default:
-              <tt>&quot;</tt>, <tt>&quot;</tt>
+              <tt>&quot;, &quot;</tt>
             
           </span>
           
@@ -640,29 +649,39 @@ format in the <code>options</code> hash.</p>
       <pre class="lines">
 
 
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161</pre>
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blackbox/number.rb', line 148</span>
+      <pre class="code"><span class="info file"># File 'lib/blackbox/number.rb', line 161</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_with_delimiter'>with_delimiter</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_with_delimiter'>with_delimiter</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+     <span class='const'>Float</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span>
+   <span class='kw'>rescue</span>
+     <span class='kw'>return</span> <span class='kw'>nil</span>
+   <span class='kw'>end</span>
   <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='const'>BB</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_symbolize_keys'>symbolize_keys</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_delimiter'>delimiter</span> <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:delimiter</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_separator'>separator</span> <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:separator</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_delimiter'>delimiter</span> <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:delimiter</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>,</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_separator'>separator</span> <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:separator</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
   <span class='kw'>begin</span>
     <span class='id identifier rubyid_parts'>parts</span> <span class='op'>=</span> <span class='id identifier rubyid_number'>number</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -690,8 +709,9 @@ format in the <code>options</code> hash.</p>
   <div class="discussion">
     
 <p>Formats a <code>number</code> with the specified level of
-<code>:precision</code> (e.g., 112.32 has a precision of 2). You can
-customize the format in the <code>options</code> hash.</p>
+<code>:precision</code> (e.g., 112.32 has a precision of 2). This method
+returns nil if <code>number</code> cannot be converted into a number. You
+can customize the format in the <code>options</code> hash.</p>
 
 
   </div>
@@ -844,12 +864,6 @@ customize the format in the <code>options</code> hash.</p>
       <pre class="lines">
 
 
-107
-108
-109
-110
-111
-112
 113
 114
 115
@@ -859,12 +873,30 @@ customize the format in the <code>options</code> hash.</p>
 119
 120
 121
-122</pre>
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blackbox/number.rb', line 107</span>
+      <pre class="code"><span class="info file"># File 'lib/blackbox/number.rb', line 113</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_with_precision'>with_precision</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='kw'>begin</span>
+     <span class='const'>Float</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span>
+   <span class='kw'>rescue</span>
+     <span class='kw'>return</span> <span class='kw'>nil</span>
+   <span class='kw'>end</span>
+
   <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='const'>BB</span><span class='op'>::</span><span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_symbolize_keys'>symbolize_keys</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_precision'>precision</span> <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:precision</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='int'>3</span><span class='rparen'>)</span>
@@ -872,10 +904,10 @@ customize the format in the <code>options</code> hash.</p>
   <span class='id identifier rubyid_delimiter'>delimiter</span> <span class='op'>||=</span> <span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:delimiter</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
   <span class='kw'>begin</span>
-    <span class='id identifier rubyid_rounded_number'>rounded_number</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='const'>Float</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='int'>10</span> <span class='op'>**</span> <span class='id identifier rubyid_precision'>precision</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='int'>10</span> <span class='op'>**</span> <span class='id identifier rubyid_precision'>precision</span>
+    <span class='id identifier rubyid_rounded_number'>rounded_number</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='const'>Float</span><span class='lparen'>(</span><span class='id identifier rubyid_number'>number</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='int'>10</span><span class='op'>**</span><span class='id identifier rubyid_precision'>precision</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_round'>round</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='int'>10</span><span class='op'>**</span><span class='id identifier rubyid_precision'>precision</span>
     <span class='id identifier rubyid_with_delimiter'>with_delimiter</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%01.</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_precision'>precision</span><span class='embexpr_end'>}</span><span class='tstring_content'>f</span><span class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='id identifier rubyid_rounded_number'>rounded_number</span><span class='comma'>,</span>
-      <span class='symbol'>:separator</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_separator'>separator</span><span class='comma'>,</span>
-      <span class='symbol'>:delimiter</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_delimiter'>delimiter</span><span class='rparen'>)</span>
+                   <span class='label'>separator:</span> <span class='id identifier rubyid_separator'>separator</span><span class='comma'>,</span>
+                   <span class='label'>delimiter:</span> <span class='id identifier rubyid_delimiter'>delimiter</span><span class='rparen'>)</span>
   <span class='kw'>rescue</span>
     <span class='id identifier rubyid_number'>number</span>
   <span class='kw'>end</span>
@@ -890,9 +922,9 @@ customize the format in the <code>options</code> hash.</p>
 </div>
 
     <div id="footer">
-  Generated on Sun Nov 22 18:39:44 2015 by
+  Generated on Sat May 14 21:20:44 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.5.2 (ruby-2.2.2).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>

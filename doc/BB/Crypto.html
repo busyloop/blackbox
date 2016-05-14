@@ -6,18 +6,18 @@
 <title>
   Module: BB::Crypto
   
-    &mdash; Documentation by YARD 0.8.5.2
+    &mdash; Documentation by YARD 0.8.7.6
   
 </title>
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!" + escape(window.location.href);
+  framesUrl = "../frames.html#!BB/Crypto.html";
 </script>
 
 
@@ -379,7 +379,6 @@
       <pre class="lines">
 
 
-36
 37
 38
 39
@@ -391,21 +390,18 @@
 45
 46
 47
-48
-49</pre>
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blackbox/crypto.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/blackbox/crypto.rb', line 37</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_decrypt'>decrypt</span><span class='lparen'>(</span><span class='id identifier rubyid_ciphertext'>ciphertext</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cipher_type'>cipher_type</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>aes-256-cbc</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_iv'>iv</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_decrypt'>decrypt</span><span class='lparen'>(</span><span class='id identifier rubyid_ciphertext'>ciphertext</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cipher_type'>cipher_type</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>aes-256-cbc</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_iv'>iv</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_cipher'>cipher</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>Cipher</span><span class='op'>::</span><span class='const'>Cipher</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_cipher_type'>cipher_type</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_cipher'>cipher</span><span class='period'>.</span><span class='id identifier rubyid_decrypt'>decrypt</span>
   <span class='id identifier rubyid_cipher'>cipher</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='id identifier rubyid_key'>key</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_iv'>iv</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
     <span class='id identifier rubyid_iv_len'>iv_len</span> <span class='op'>=</span> <span class='id identifier rubyid_ciphertext'>ciphertext</span><span class='period'>.</span><span class='id identifier rubyid_slice!'>slice!</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_unpack'>unpack</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>C</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
-    <span class='kw'>unless</span> <span class='int'>0</span> <span class='op'>==</span> <span class='id identifier rubyid_iv_len'>iv_len</span>
-      <span class='id identifier rubyid_cipher'>cipher</span><span class='period'>.</span><span class='id identifier rubyid_iv'>iv</span> <span class='op'>=</span> <span class='id identifier rubyid_ciphertext'>ciphertext</span><span class='period'>.</span><span class='id identifier rubyid_slice!'>slice!</span><span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='id identifier rubyid_iv_len'>iv_len</span><span class='op'>-</span><span class='int'>1</span><span class='rparen'>)</span>
-    <span class='kw'>end</span>
+    <span class='id identifier rubyid_cipher'>cipher</span><span class='period'>.</span><span class='id identifier rubyid_iv'>iv</span> <span class='op'>=</span> <span class='id identifier rubyid_ciphertext'>ciphertext</span><span class='period'>.</span><span class='id identifier rubyid_slice!'>slice!</span><span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='id identifier rubyid_iv_len'>iv_len</span> <span class='op'>-</span> <span class='int'>1</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='int'>0</span> <span class='op'>==</span> <span class='id identifier rubyid_iv_len'>iv_len</span>
   <span class='kw'>else</span>
     <span class='id identifier rubyid_cipher'>cipher</span><span class='period'>.</span><span class='id identifier rubyid_iv'>iv</span> <span class='op'>=</span> <span class='id identifier rubyid_iv'>iv</span>
   <span class='kw'>end</span>
@@ -532,14 +528,14 @@
       <pre class="lines">
 
 
+69
 70
-71
-72</pre>
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blackbox/crypto.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/blackbox/crypto.rb', line 69</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_decrypt_base64'>decrypt_base64</span><span class='lparen'>(</span><span class='id identifier rubyid_ciphertext'>ciphertext</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cipher_type'>cipher_type</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>aes-256-cbc</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_iv'>iv</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_decrypt_base64'>decrypt_base64</span><span class='lparen'>(</span><span class='id identifier rubyid_ciphertext'>ciphertext</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cipher_type'>cipher_type</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>aes-256-cbc</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_iv'>iv</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_decrypt'>decrypt</span><span class='lparen'>(</span><span class='const'>Base64</span><span class='period'>.</span><span class='id identifier rubyid_decode64'>decode64</span><span class='lparen'>(</span><span class='id identifier rubyid_ciphertext'>ciphertext</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cipher_type'>cipher_type</span><span class='comma'>,</span> <span class='id identifier rubyid_iv'>iv</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -663,14 +659,14 @@
       <pre class="lines">
 
 
+92
 93
-94
-95</pre>
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blackbox/crypto.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/blackbox/crypto.rb', line 92</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_decrypt_urlsafe_base64'>decrypt_urlsafe_base64</span><span class='lparen'>(</span><span class='id identifier rubyid_ciphertext'>ciphertext</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cipher_type'>cipher_type</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>aes-256-cbc</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_iv'>iv</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_decrypt_urlsafe_base64'>decrypt_urlsafe_base64</span><span class='lparen'>(</span><span class='id identifier rubyid_ciphertext'>ciphertext</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cipher_type'>cipher_type</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>aes-256-cbc</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_iv'>iv</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_decrypt'>decrypt</span><span class='lparen'>(</span><span class='const'>Base64</span><span class='period'>.</span><span class='id identifier rubyid_urlsafe_decode64'>urlsafe_decode64</span><span class='lparen'>(</span><span class='id identifier rubyid_ciphertext'>ciphertext</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cipher_type'>cipher_type</span><span class='comma'>,</span> <span class='id identifier rubyid_iv'>iv</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -808,7 +804,6 @@
       <pre class="lines">
 
 
-16
 17
 18
 19
@@ -819,12 +814,13 @@
 24
 25
 26
-27</pre>
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blackbox/crypto.rb', line 16</span>
+      <pre class="code"><span class="info file"># File 'lib/blackbox/crypto.rb', line 17</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_encrypt'>encrypt</span><span class='lparen'>(</span><span class='id identifier rubyid_plaintext'>plaintext</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cipher_type'>cipher_type</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>aes-256-cbc</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_iv'>iv</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_encrypt'>encrypt</span><span class='lparen'>(</span><span class='id identifier rubyid_plaintext'>plaintext</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cipher_type'>cipher_type</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>aes-256-cbc</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_iv'>iv</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_cipher'>cipher</span> <span class='op'>=</span> <span class='const'>OpenSSL</span><span class='op'>::</span><span class='const'>Cipher</span><span class='op'>::</span><span class='const'>Cipher</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_cipher_type'>cipher_type</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_cipher'>cipher</span><span class='period'>.</span><span class='id identifier rubyid_encrypt'>encrypt</span>
   <span class='id identifier rubyid_cipher'>cipher</span><span class='period'>.</span><span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='id identifier rubyid_key'>key</span>
@@ -971,14 +967,14 @@
       <pre class="lines">
 
 
+58
 59
-60
-61</pre>
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blackbox/crypto.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/blackbox/crypto.rb', line 58</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_encrypt_base64'>encrypt_base64</span><span class='lparen'>(</span><span class='id identifier rubyid_plaintext'>plaintext</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cipher_type'>cipher_type</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>aes-256-cbc</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_iv'>iv</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_encrypt_base64'>encrypt_base64</span><span class='lparen'>(</span><span class='id identifier rubyid_plaintext'>plaintext</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cipher_type'>cipher_type</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>aes-256-cbc</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_iv'>iv</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='const'>Base64</span><span class='period'>.</span><span class='id identifier rubyid_strict_encode64'>strict_encode64</span><span class='lparen'>(</span><span class='id identifier rubyid_encrypt'>encrypt</span><span class='lparen'>(</span><span class='id identifier rubyid_plaintext'>plaintext</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cipher_type'>cipher_type</span><span class='comma'>,</span> <span class='id identifier rubyid_iv'>iv</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1116,14 +1112,14 @@
       <pre class="lines">
 
 
+81
 82
-83
-84</pre>
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/blackbox/crypto.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/blackbox/crypto.rb', line 81</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_encrypt_urlsafe_base64'>encrypt_urlsafe_base64</span><span class='lparen'>(</span><span class='id identifier rubyid_plaintext'>plaintext</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cipher_type'>cipher_type</span><span class='op'>=</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>aes-256-cbc</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_iv'>iv</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_encrypt_urlsafe_base64'>encrypt_urlsafe_base64</span><span class='lparen'>(</span><span class='id identifier rubyid_plaintext'>plaintext</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cipher_type'>cipher_type</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>aes-256-cbc</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_iv'>iv</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='const'>Base64</span><span class='period'>.</span><span class='id identifier rubyid_urlsafe_encode64'>urlsafe_encode64</span><span class='lparen'>(</span><span class='id identifier rubyid_encrypt'>encrypt</span><span class='lparen'>(</span><span class='id identifier rubyid_plaintext'>plaintext</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_cipher_type'>cipher_type</span><span class='comma'>,</span> <span class='id identifier rubyid_iv'>iv</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1136,9 +1132,9 @@
 </div>
 
     <div id="footer">
-  Generated on Sun Nov 22 18:39:45 2015 by
+  Generated on Sat May 14 21:20:44 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.5.2 (ruby-2.2.2).
+  0.8.7.6 (ruby-2.3.0).
 </div>
 
   </body>
