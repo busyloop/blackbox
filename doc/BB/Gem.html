@@ -332,7 +332,13 @@ version?</p>
 76
 77
 78
-79</pre>
+79
+80
+81
+82
+83
+84
+85</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/blackbox/gem.rb', line 21</span>
@@ -379,7 +385,13 @@ version?</p>
   <span class='kw'>rescue</span>
     <span class='id identifier rubyid_last_check_at'>last_check_at</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_at'>at</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
-  <span class='kw'>return</span> <span class='id identifier rubyid_ret'>ret</span> <span class='kw'>if</span> <span class='id identifier rubyid_last_check_at'>last_check_at</span> <span class='op'>&gt;</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span> <span class='op'>-</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:check_interval</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_ret'>ret</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span>
+    <span class='label'>last_checked_for_update:</span> <span class='id identifier rubyid_last_check_at'>last_check_at</span><span class='comma'>,</span>
+    <span class='label'>next_check_for_update:</span> <span class='id identifier rubyid_last_check_at'>last_check_at</span> <span class='op'>+</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:check_interval</span><span class='rbracket'>]</span>
+  <span class='rparen'>)</span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_ret'>ret</span> <span class='kw'>if</span> <span class='id identifier rubyid_last_check_at'>last_check_at</span> <span class='op'>+</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:check_interval</span><span class='rbracket'>]</span> <span class='op'>&gt;</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:force_check</span><span class='rbracket'>]</span>
 
   <span class='id identifier rubyid_checker'>checker</span> <span class='op'>=</span> <span class='const'>GemUpdateChecker</span><span class='op'>::</span><span class='const'>Client</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:gem_name</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:gem_installed_version</span><span class='rbracket'>]</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_last_check_at'>last_check_at</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span>
@@ -392,7 +404,7 @@ version?</p>
     <span class='label'>gem_update_available:</span> <span class='id identifier rubyid_checker'>checker</span><span class='period'>.</span><span class='id identifier rubyid_update_available'>update_available</span>
   <span class='rparen'>)</span>
 
-  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_touch'>touch</span><span class='lparen'>(</span><span class='id identifier rubyid_statefile_path'>statefile_path</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:installed_is_latest</span><span class='rbracket'>]</span>
+  <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_touch'>touch</span><span class='lparen'>(</span><span class='id identifier rubyid_statefile_path'>statefile_path</span><span class='comma'>,</span> <span class='label'>mtime:</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_ret'>ret</span><span class='lbracket'>[</span><span class='symbol'>:installed_is_latest</span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:force_check</span><span class='rbracket'>]</span>
 
   <span class='id identifier rubyid_ret'>ret</span>
 <span class='kw'>end</span></pre>
@@ -406,9 +418,9 @@ version?</p>
 </div>
 
     <div id="footer">
-  Generated on Sat May 14 21:21:15 2016 by
+  Generated on Sat May 14 22:10:23 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.3.0).
+  0.8.7.6 (ruby-2.3.1).
 </div>
 
   </body>
