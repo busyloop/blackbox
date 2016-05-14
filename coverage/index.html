@@ -14,27 +14,27 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-05-14T22:10:22+02:00">2016-05-14T22:10:22+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-05-14T23:52:58+02:00">2016-05-14T23:52:58+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">100.0%</span></span>
+    (<span class="covered_percent"><span class="green">98.51%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         63.22
+         61.9
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>5</b> files in total.
-    <b>131</b> relevant lines. 
-    <span class="green"><b>131</b> lines covered</span> and
-    <span class="red"><b>0</b> lines missed </span>
+    <b>134</b> relevant lines. 
+    <span class="green"><b>132</b> lines covered</span> and
+    <span class="red"><b>2</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -62,12 +62,12 @@
       
       <tr>
         <td class="strong"><a href="#192e300fd7769b750c82567439ee016f85516f3d" class="src_link" title="lib/blackbox/gem.rb">lib/blackbox/gem.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>88</td>
-        <td>30</td>
-        <td>30</td>
-        <td>0</td>
-        <td>6.5</td>
+        <td class="green strong">93.94 %</td>
+        <td>93</td>
+        <td>33</td>
+        <td>31</td>
+        <td>2</td>
+        <td>6.3</td>
       </tr>
       
       <tr>
@@ -719,11 +719,11 @@
         <div class="source_table" id="192e300fd7769b750c82567439ee016f85516f3d">
   <div class="header">
     <h3>lib/blackbox/gem.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="green">93.94 %</span> covered</h4>
     <div>
-      <b>30</b> relevant lines. 
-      <span class="green"><b>30</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>33</b> relevant lines. 
+      <span class="green"><b>31</b> lines covered</span> and
+      <span class="red"><b>2</b> lines missed.</span>
     </div>
   </div>
   
@@ -919,340 +919,370 @@
         <li class="covered" data-hits="8" data-linenumber="32">
           <span class="hits">8</span>
           
+          <code class="ruby">        calling_file = caller[0].split(&#39;:&#39;)[0]</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="33">
+          <span class="hits">8</span>
+          
           <code class="ruby">        spec = ::Gem::Specification.find do |s|</code>
         </li>
       
-        <li class="covered" data-hits="32" data-linenumber="33">
+        <li class="covered" data-hits="32" data-linenumber="34">
           <span class="hits">32</span>
           
-          <code class="ruby">          File.fnmatch(File.join(s.full_gem_path, &#39;*&#39;), __FILE__)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="34">
-          
-          
-          <code class="ruby">        end</code>
+          <code class="ruby">          File.fnmatch(File.join(s.full_gem_path, &#39;*&#39;), calling_file)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="35">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="36">
-          <span class="hits">8</span>
+        <li class="never" data-hits="" data-linenumber="36">
           
-          <code class="ruby">        ret[:gem_installed_version] = spec&amp;.version.to_s || :unknown</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="8" data-linenumber="37">
           <span class="hits">8</span>
           
+          <code class="ruby">        ret[:gem_installed_version] = spec&amp;.version&amp;.to_s || :unknown</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="38">
+          <span class="hits">8</span>
+          
           <code class="ruby">        ret[:gem_name] = spec&amp;.name || :unknown</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="38">
+        <li class="never" data-hits="" data-linenumber="39">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="39">
+        <li class="covered" data-hits="8" data-linenumber="40">
           <span class="hits">8</span>
           
           <code class="ruby">        opts = { # defaults</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="41">
           
           
           <code class="ruby">          check_interval: 3600,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
-          
-          
-          <code class="ruby">          disabling_env_var: &quot;#{spec.name.upcase}_DISABLE_VERSION_CHECK&quot;</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="42">
           
           
-          <code class="ruby">        }.merge(opts)</code>
+          <code class="ruby">          disabling_env_var: &quot;#{ret[:gem_name].upcase}_DISABLE_VERSION_CHECK&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="43">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">        }.merge(opts)</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="44">
-          <span class="hits">8</span>
+        <li class="never" data-hits="" data-linenumber="44">
           
-          <code class="ruby">        return ret if ret[:gem_name] == :unknown</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="8" data-linenumber="45">
           <span class="hits">8</span>
           
-          <code class="ruby">        return ret if ret[:gem_installed_version] == :unknown</code>
+          <code class="ruby">        return ret if ret[:gem_name] == :unknown</code>
         </li>
       
         <li class="covered" data-hits="8" data-linenumber="46">
           <span class="hits">8</span>
           
-          <code class="ruby">        if opts[:disabling_env_var] &amp;&amp; ENV.include?(opts[:disabling_env_var])</code>
+          <code class="ruby">        return ret if ret[:gem_installed_version] == :unknown</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="47">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="8" data-linenumber="47">
+          <span class="hits">8</span>
           
-          <code class="ruby">          ret[:next_check_for_update] = :never</code>
+          <code class="ruby">        if opts[:disabling_env_var] &amp;&amp; ENV.include?(opts[:disabling_env_var])</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="48">
           <span class="hits">1</span>
           
-          <code class="ruby">          return ret</code>
+          <code class="ruby">          ret[:next_check_for_update] = :never</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="49">
+        <li class="covered" data-hits="1" data-linenumber="49">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">        end</code>
+          <code class="ruby">          return ret</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="50">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="51">
-          <span class="hits">7</span>
+        <li class="never" data-hits="" data-linenumber="51">
           
-          <code class="ruby">        require &#39;gem_update_checker&#39;</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="7" data-linenumber="52">
           <span class="hits">7</span>
           
-          <code class="ruby">        require &#39;tmpdir&#39;</code>
+          <code class="ruby">        require &#39;gem_update_checker&#39;</code>
         </li>
       
         <li class="covered" data-hits="7" data-linenumber="53">
           <span class="hits">7</span>
           
+          <code class="ruby">        require &#39;tmpdir&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="7" data-linenumber="54">
+          <span class="hits">7</span>
+          
           <code class="ruby">        require &#39;fileutils&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="55">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="55">
+        <li class="covered" data-hits="7" data-linenumber="56">
           <span class="hits">7</span>
           
           <code class="ruby">        statefile_path = File.join(Dir.tmpdir, &quot;#{ret[:gem_name]}-#{ret[:gem_installed_version]}.last_update_check&quot;)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="56">
+        <li class="never" data-hits="" data-linenumber="57">
           
           
           <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="7" data-linenumber="57">
-          <span class="hits">7</span>
-          
-          <code class="ruby">        last_check_at = nil</code>
         </li>
       
         <li class="covered" data-hits="7" data-linenumber="58">
           <span class="hits">7</span>
           
-          <code class="ruby">        begin</code>
+          <code class="ruby">        last_check_at = nil</code>
         </li>
       
         <li class="covered" data-hits="7" data-linenumber="59">
           <span class="hits">7</span>
           
+          <code class="ruby">        begin</code>
+        </li>
+      
+        <li class="covered" data-hits="7" data-linenumber="60">
+          <span class="hits">7</span>
+          
           <code class="ruby">          last_check_at = File.stat(statefile_path).mtime</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="60">
+        <li class="never" data-hits="" data-linenumber="61">
           
           
           <code class="ruby">        rescue</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="61">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="62">
+          
           
           <code class="ruby">          last_check_at = Time.at(0)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="62">
-          
-          
-          <code class="ruby">        end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="63">
           
           
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="64">
+        <li class="covered" data-hits="7" data-linenumber="65">
           <span class="hits">7</span>
           
           <code class="ruby">        ret.merge!(</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="65">
-          
-          
-          <code class="ruby">          last_checked_for_update: last_check_at,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="66">
           
           
-          <code class="ruby">          next_check_for_update: last_check_at + opts[:check_interval]</code>
+          <code class="ruby">          last_checked_for_update: last_check_at,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="67">
           
           
-          <code class="ruby">        )</code>
+          <code class="ruby">          next_check_for_update: last_check_at + opts[:check_interval]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="68">
           
           
+          <code class="ruby">        )</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="69">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="69">
+        <li class="covered" data-hits="7" data-linenumber="70">
           <span class="hits">7</span>
           
           <code class="ruby">        return ret if last_check_at + opts[:check_interval] &gt; Time.now &amp;&amp; !opts[:force_check]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="70">
+        <li class="never" data-hits="" data-linenumber="71">
           
           
           <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="6" data-linenumber="71">
-          <span class="hits">6</span>
-          
-          <code class="ruby">        checker = GemUpdateChecker::Client.new(ret[:gem_name], ret[:gem_installed_version])</code>
         </li>
       
         <li class="covered" data-hits="6" data-linenumber="72">
           <span class="hits">6</span>
           
+          <code class="ruby">        checker = GemUpdateChecker::Client.new(ret[:gem_name], ret[:gem_installed_version])</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="73">
+          <span class="hits">6</span>
+          
           <code class="ruby">        last_check_at = Time.now</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="73">
+        <li class="never" data-hits="" data-linenumber="74">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="74">
+        <li class="covered" data-hits="6" data-linenumber="75">
           <span class="hits">6</span>
           
           <code class="ruby">        ret.merge!(</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="75">
+        <li class="never" data-hits="" data-linenumber="76">
           
           
           <code class="ruby">          gem_latest_version: checker.latest_version,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="76">
+        <li class="never" data-hits="" data-linenumber="77">
           
           
           <code class="ruby">          last_checked_for_update: last_check_at,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="77">
+        <li class="never" data-hits="" data-linenumber="78">
           
           
           <code class="ruby">          next_check_for_update: last_check_at + opts[:check_interval],</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="78">
+        <li class="never" data-hits="" data-linenumber="79">
           
           
           <code class="ruby">          installed_is_latest: ret[:gem_installed_version] == checker.latest_version,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="79">
+        <li class="never" data-hits="" data-linenumber="80">
           
           
           <code class="ruby">          gem_update_available: checker.update_available</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="80">
+        <li class="never" data-hits="" data-linenumber="81">
           
           
           <code class="ruby">        )</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="81">
+        <li class="never" data-hits="" data-linenumber="82">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="82">
+        <li class="covered" data-hits="6" data-linenumber="83">
           <span class="hits">6</span>
           
-          <code class="ruby">        FileUtils.touch(statefile_path, mtime: Time.now) if ret[:installed_is_latest] || opts[:force_check]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="83">
-          
-          
-          <code class="ruby"></code>
+          <code class="ruby">        if ret[:installed_is_latest] || opts[:force_check]</code>
         </li>
       
         <li class="covered" data-hits="6" data-linenumber="84">
           <span class="hits">6</span>
           
-          <code class="ruby">        ret</code>
+          <code class="ruby">          FileUtils.touch(statefile_path, mtime: Time.now)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="85">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">        else</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="86">
+        <li class="missed" data-hits="0" data-linenumber="86">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">          ret[:next_check_for_update] = Time.now</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="87">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">        end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="88">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="89">
+          <span class="hits">6</span>
+          
+          <code class="ruby">        ret</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="90">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="91">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="92">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="93">
           
           
           <code class="ruby">end</code>
