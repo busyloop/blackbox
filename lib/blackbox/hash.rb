@@ -7,7 +7,7 @@ module BB
       # @param [Hash] hash Input hash
       # @return [Hash] Output hash (with symbolized keys)
       def symbolize_keys(hash)
-        hash.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+        hash.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
       end
 
       # Recursively flatten a hash to property-style format.
@@ -29,12 +29,12 @@ module BB
       #   Key delimiter (Default: '.')
       # @param [Hash] output (leave this blank)
       # @return [Hash] Output hash (flattened)
-      def flatten_prop_style(input={}, opts={}, output={})
+      def flatten_prop_style(input = {}, opts = {}, output = {})
         input.each do |key, value|
-          key = opts[:prefix].nil? ? "#{key}" : "#{opts[:prefix]}#{opts[:delimiter]||'.'}#{key}"
+          key = opts[:prefix].nil? ? key.to_s : "#{opts[:prefix]}#{opts[:delimiter] || '.'}#{key}"
           case value
           when ::Hash
-            flatten_prop_style(value, opts.merge({:prefix => key}), output)
+            flatten_prop_style(value, opts.merge(prefix: key), output)
           when Array
             output[key] = value.join(',')
           else
@@ -46,4 +46,3 @@ module BB
     end
   end
 end
-

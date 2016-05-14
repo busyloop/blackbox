@@ -1,0 +1,18 @@
+Metrics/AbcSize:
+  Max: 37
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/LineLength:
+  Max: 133
+
+Metrics/MethodLength:
+  Max: 32
+
+Metrics/PerceivedComplexity:
+  Max: 11
+
+Style/FormatString:
+  Exclude:
+    - 'lib/blackbox/number.rb'

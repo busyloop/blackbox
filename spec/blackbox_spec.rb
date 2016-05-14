@@ -6,4 +6,3 @@ describe BB do
     expect(BB::VERSION).not_to be_nil
   end
 end
-

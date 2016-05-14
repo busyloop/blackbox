@@ -6,6 +6,7 @@
 .PHONY: test doc release
 
 test:
+	bundle exec rubocop
 	bundle exec rake
 
 doc:

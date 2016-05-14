@@ -13,7 +13,7 @@ module BB
       # @param [String] iv Initialization vector
       # @return [String] When iv == nil: iv_length+iv+ciphertext
       # @return [String] When iv != nil: ciphertext
-      def encrypt(plaintext, key, cipher_type='aes-256-cbc', iv=nil)
+      def encrypt(plaintext, key, cipher_type = 'aes-256-cbc', iv = nil)
         cipher = OpenSSL::Cipher::Cipher.new(cipher_type)
         cipher.encrypt
         cipher.key = key
@@ -33,15 +33,13 @@ module BB
       # @param [String] cipher_type OpenSSL cipher
       # @param [String] iv Initialization vector
       # @return [String] Plaintext
-      def decrypt(ciphertext, key, cipher_type='aes-256-cbc', iv=nil)
+      def decrypt(ciphertext, key, cipher_type = 'aes-256-cbc', iv = nil)
         cipher = OpenSSL::Cipher::Cipher.new(cipher_type)
         cipher.decrypt
         cipher.key = key
         if iv.nil?
           iv_len = ciphertext.slice!(0).unpack('C')[0]
-          unless 0 == iv_len
-            cipher.iv = ciphertext.slice!(0..iv_len-1)
-          end
+          cipher.iv = ciphertext.slice!(0..iv_len - 1) unless 0 == iv_len
         else
           cipher.iv = iv
         end
@@ -56,7 +54,7 @@ module BB
       # @param [String] iv Initialization vector
       # @return [String] When iv == nil: base64(iv_length+iv+ciphertext)
       # @return [String] When iv != nil: base64(ciphertext)
-      def encrypt_base64(plaintext, key, cipher_type='aes-256-cbc', iv=nil)
+      def encrypt_base64(plaintext, key, cipher_type = 'aes-256-cbc', iv = nil)
         Base64.strict_encode64(encrypt(plaintext, key, cipher_type, iv))
       end
 
@@ -67,7 +65,7 @@ module BB
       # @param [String] cipher_type OpenSSL cipher
       # @param [String] iv Initialization vector
       # @return [String] Plaintext
-      def decrypt_base64(ciphertext, key, cipher_type='aes-256-cbc', iv=nil)
+      def decrypt_base64(ciphertext, key, cipher_type = 'aes-256-cbc', iv = nil)
         decrypt(Base64.decode64(ciphertext), key, cipher_type, iv)
       end
 
@@ -79,7 +77,7 @@ module BB
       # @param [String] iv Initialization vector
       # @return [String] When iv == nil: urlsafe_base64(iv_length+iv+ciphertext)
       # @return [String] When iv != nil: urlsafe_base64(ciphertext)
-      def encrypt_urlsafe_base64(plaintext, key, cipher_type='aes-256-cbc', iv=nil)
+      def encrypt_urlsafe_base64(plaintext, key, cipher_type = 'aes-256-cbc', iv = nil)
         Base64.urlsafe_encode64(encrypt(plaintext, key, cipher_type, iv))
       end
 
@@ -90,10 +88,9 @@ module BB
       # @param [String] cipher_type OpenSSL cipher
       # @param [String] iv Initialization vector
       # @return [String] Plaintext
-      def decrypt_urlsafe_base64(ciphertext, key, cipher_type='aes-256-cbc', iv=nil)
+      def decrypt_urlsafe_base64(ciphertext, key, cipher_type = 'aes-256-cbc', iv = nil)
         decrypt(Base64.urlsafe_decode64(ciphertext), key, cipher_type, iv)
       end
     end
   end
 end
-
