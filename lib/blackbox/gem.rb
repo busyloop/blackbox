@@ -29,16 +29,17 @@ module BB
           installed_is_latest: true
         }
 
+        calling_file = caller[0].split(':')[0]
         spec = ::Gem::Specification.find do |s|
-          File.fnmatch(File.join(s.full_gem_path, '*'), __FILE__)
+          File.fnmatch(File.join(s.full_gem_path, '*'), calling_file)
         end
 
-        ret[:gem_installed_version] = spec&.version.to_s || :unknown
+        ret[:gem_installed_version] = spec&.version&.to_s || :unknown
         ret[:gem_name] = spec&.name || :unknown
 
         opts = { # defaults
           check_interval: 3600,
-          disabling_env_var: "#{spec.name.upcase}_DISABLE_VERSION_CHECK"
+          disabling_env_var: "#{ret[:gem_name].upcase}_DISABLE_VERSION_CHECK"
         }.merge(opts)
 
         return ret if ret[:gem_name] == :unknown
@@ -79,7 +80,11 @@ module BB
           gem_update_available: checker.update_available
         )
 
-        FileUtils.touch(statefile_path, mtime: Time.now) if ret[:installed_is_latest] || opts[:force_check]
+        if ret[:installed_is_latest] || opts[:force_check]
+          FileUtils.touch(statefile_path, mtime: Time.now)
+        else
+          ret[:next_check_for_update] = Time.now
+        end
 
         ret
       end
