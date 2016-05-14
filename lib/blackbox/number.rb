@@ -7,10 +7,10 @@ module BB
       STORAGE_UNITS = ['byte', 'k', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y'].freeze
 
       ##
-      # Formats the bytes in +size+ into a more understandable representation
+      # Formats the bytes in +number+ into a more understandable representation
       # (e.g., giving it 1500 yields 1.5k). This method is useful for
       # reporting file sizes to users. This method returns nil if
-      # +size+ cannot be converted into a number. You can customize the
+      # +number+ cannot be converted into a number. You can customize the
       # format in the +options+ hash.
       #
       # @overload to_human_size(number, options={})
@@ -43,7 +43,7 @@ module BB
       #   to_human_size(1234567, :precision => 2, :separator => ',')  # => 1,18M
       #
       def to_human_size(number, args={})
-         return nil if number.nil?
+         Float(number) rescue return nil
 
          options = BB::Hash.symbolize_keys(args)
 
@@ -53,18 +53,18 @@ module BB
          kilo      ||= (options[:kilo] || 1024)
          storage_units_format ||= (options[:format] || '%n%u')
 
-         if number.to_i < kilo
-           storage_units_format.gsub(/%n/, number.to_i.to_s).gsub(/%u/, '')
-         else
-           max_exp  = STORAGE_UNITS.size - 1
-           number   = Float(number)
-           exponent = (Math.log(number) / Math.log(kilo)).to_i # Convert to base
-           exponent = max_exp if exponent > max_exp # we need this to avoid overflow for the highest unit
-           number  /= kilo ** exponent
+         begin
+           if number.to_i < kilo
+             storage_units_format.gsub(/%n/, number.to_i.to_s).gsub(/%u/, '')
+           else
+             max_exp  = STORAGE_UNITS.size - 1
+             number   = Float(number)
+             exponent = (Math.log(number) / Math.log(kilo)).to_i # Convert to base
+             exponent = max_exp if exponent > max_exp # we need this to avoid overflow for the highest unit
+             number  /= kilo ** exponent
 
-           unit = STORAGE_UNITS[exponent]
+             unit = STORAGE_UNITS[exponent]
 
-           begin
              escaped_separator = Regexp.escape(separator)
              formatted_number = with_precision(number,
                :precision => precision,
@@ -72,14 +72,15 @@ module BB
                :delimiter => delimiter
              ).sub(/(#{escaped_separator})(\d*[1-9])?0+\z/, '\1\2').sub(/#{escaped_separator}\z/, '')
              storage_units_format.gsub(/%n/, formatted_number).gsub(/%u/, unit)
-           rescue => e
-             number
            end
+         rescue => e
+           number
          end
        end
 
        ##
        # Formats a +number+ with the specified level of <tt>:precision</tt> (e.g., 112.32 has a precision of 2).
+       # This method returns nil if +number+ cannot be converted into a number.
        # You can customize the format in the +options+ hash.
        #
        # @overload with_precision(number, options={})
@@ -105,6 +106,8 @@ module BB
        #   # => 1.111,23
        #
        def with_precision(number, args)
+         Float(number) rescue return nil
+
          options = BB::Hash.symbolize_keys(args)
 
          precision ||= (options[:precision] || 3)
@@ -122,8 +125,9 @@ module BB
        end
 
        ##
-       # Formats a +number+ with grouped thousands using +delimiter+ (e.g., 12,324). You can
-       # customize the format in the +options+ hash.
+       # Formats a +number+ with grouped thousands using +delimiter+ (e.g., 12,324).
+       # This method returns nil if +number+ cannot be converted into a number.
+       # You can customize the format in the +options+ hash.
        #
        # @overload with_delimiter(number, options={})
        #   @param [Fixnum, Float] number
@@ -145,11 +149,12 @@ module BB
        #   with_delimiter(98765432.98, :delimiter => " ", :separator => ",")
        #   # => 98 765 432,98
        #
-       def with_delimiter(number, args)
+       def with_delimiter(number, args={})
+         Float(number) rescue return nil
          options = BB::Hash.symbolize_keys(args)
 
-         delimiter ||= (options[:delimiter] || '.')
-         separator ||= (options[:separator] || ',')
+         delimiter ||= (options[:delimiter] || ',')
+         separator ||= (options[:separator] || '.')
 
          begin
            parts = number.to_s.split('.')

@@ -9,6 +9,31 @@ describe BB::Number do
       want = "98A765A432B98"
       expect(BB::Number.with_delimiter(have, :delimiter => 'A', :separator => 'B' )).to eq(want)
     end
+
+    it "uses sensible defaults" do
+      have = 98765432.98
+      want = "98,765,432.98"
+      expect(BB::Number.with_delimiter(have)).to eq(want)
+    end
+
+    it "turns 12345678.05 into \"12,345,678.05\" by default" do
+      have = 12345678.05
+      want = "12,345,678.05"
+      expect(BB::Number.with_delimiter(have)).to eq(want)
+    end
+
+    it "returns nil when input could not be parsed as Float" do
+      have = "not_a_number"
+      want = nil
+      expect(BB::Number.with_delimiter(have)).to eq(want)
+    end
+
+    it "returns input when input could not be processed" do
+      have = 23
+      want = have
+      # deliberately cause exception with int separator
+      expect(BB::Number.with_delimiter(have, { :separator => -42 } )).to eq(want)
+    end
   end
 
   describe '.with_precision' do
@@ -17,10 +42,27 @@ describe BB::Number do
       want = "1A111B23"
       expect(BB::Number.with_precision(have, :precision => 2, :delimiter => 'A', :separator => 'B' )).to eq(want)
     end
+
+    it "uses sensible defaults" do
+      have = 1111.2345
+      want = "1111.235"
+      expect(BB::Number.with_precision(have, :precision => 3)).to eq(want)
+    end
+
+    it "returns nil when input could not be parsed as Float" do
+      have = "not_a_number"
+      want = nil
+      expect(BB::Number.with_precision(have, :precision => 2)).to eq(want)
+    end
+
+    it "returns input when input could not be processed" do
+      have = Float::INFINITY
+      want = have
+      expect(BB::Number.with_precision(have, :precision => 2)).to eq(want)
+    end
   end
 
   describe '.to_human_size' do
-
     it "passes through values < base" do
       have = 1023
       want = "1023"
@@ -87,6 +129,17 @@ describe BB::Number do
       expect(BB::Number.to_human_size(have, :precision => 2)).to eq(want)
     end
 
+    it "returns nil when input could not be parsed as Float" do
+      have = "not_a_number"
+      want = nil
+      expect(BB::Number.to_human_size(have)).to eq(want)
+    end
+
+    it "returns input when input could not be processed" do
+      have = Float::INFINITY
+      want = have
+      expect(BB::Number.to_human_size(have)).to eq(want)
+    end
   end
 
 end
