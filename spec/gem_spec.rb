@@ -53,9 +53,15 @@ describe BB::Gem do
       at = Time.parse('2015-10-21 07:28')
       Timecop.freeze(at) do
         retval = BB::Gem.version_info(check_interval: 60)
-        expect(retval).to include(
-          next_check_for_update: at + 60
-        )
+        if retval[:installed_is_latest] == false
+          expect(retval).to include(
+            next_check_for_update: at
+          )
+        else
+          expect(retval).to include(
+            next_check_for_update: at + 60
+          )
+        end
       end
     end
 
