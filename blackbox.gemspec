@@ -1,4 +1,5 @@
 # -*- encoding: utf-8 -*-
+# frozen_string_literal: true
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'blackbox/version'
@@ -17,6 +18,7 @@ Gem::Specification.new do |gem|
   gem.executables   = gem.files.grep(%r{^bin/}) { |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
+  gem.required_ruby_version = '>= 2.3.0'
 
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec'
@@ -28,4 +30,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'guard-rspec'
   gem.add_development_dependency 'fuubar'
   gem.add_development_dependency 'rubocop'
+
+  gem.add_dependency 'gem_update_checker'
 end

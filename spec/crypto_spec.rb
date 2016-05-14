@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'spec_helper'
 require 'blackbox/crypto'
 require 'base64'
@@ -12,8 +13,8 @@ OPENSSL_CIPHERS = %w(aes-128-cbc    aes-128-ecb    aes-192-cbc    aes-192-ecb   
                   %w(rc2-64-cbc     rc2-cbc        rc2-cfb        rc2-ecb        rc2-ofb) +
                   %w(rc4            rc4-40)
 
-TEST_KEY = '12345678901234567890123456789012'.freeze
-TEST_IV = 'x234567890123456789012345678901x'.freeze
+TEST_KEY = '12345678901234567890123456789012'
+TEST_IV = 'x234567890123456789012345678901x'
 TEST_TEXT_SHORT = '[SHORT_TEST]' * 16
 TEST_TEXT_LONG = '[LONG_TEST]' * 8192
 

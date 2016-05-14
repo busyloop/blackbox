@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 guard :rspec, cmd: 'bundle exec rspec -f Fuubar' do
   require 'guard/rspec/dsl'
   dsl = Guard::RSpec::Dsl.new(self)
