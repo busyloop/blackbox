@@ -2,7 +2,7 @@ AllCops:
   TargetRubyVersion: 2.3
 
 Metrics/AbcSize:
-  Max: 37
+  Max: 50
 
 Metrics/CyclomaticComplexity:
   Max: 10
@@ -11,7 +11,7 @@ Metrics/LineLength:
   Max: 133
 
 Metrics/MethodLength:
-  Max: 32
+  Max: 50
 
 Metrics/PerceivedComplexity:
   Max: 11
@@ -19,3 +19,7 @@ Metrics/PerceivedComplexity:
 Style/FormatString:
   Exclude:
     - 'lib/blackbox/number.rb'
+
+Performance/RedundantMerge:
+  Exclude:
+      - 'lib/blackbox/gem.rb'
