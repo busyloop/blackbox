@@ -20,7 +20,7 @@ describe BB::Gem do
       )
 
       expect(retval).to include(
-        gem_name: 'blackbox',
+        gem_name: 'blackbox'
       )
 
       expect(retval[:gem_installed_version]).not_to eq(:unknown)

@@ -3,7 +3,6 @@ module BB
   # Gem utilities.
   module Gem
     class << self
-
       # Return information about the currently installed gem
       # version and the latest available version on rubygems.org.
       #
@@ -19,7 +18,7 @@ module BB
       #   * :next_check_for_update   => timestamp of next query to rubygems.org
       #   * :gem_update_available    => update available?
       #   * :installed_is_latest     => is installed version == latest available version?
-      def version_info(*args, **opts)
+      def version_info(*_, **opts)
         ret = {
           gem_name: :unknown,
           gem_installed_version: :unknown,
@@ -58,7 +57,7 @@ module BB
         last_check_at = nil
         begin
           last_check_at = File.stat(statefile_path).mtime
-        rescue => e
+        rescue
           last_check_at = Time.at(0)
         end
         return ret if last_check_at > Time.now - opts[:check_interval]
