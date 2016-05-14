@@ -60,7 +60,13 @@ module BB
         rescue
           last_check_at = Time.at(0)
         end
-        return ret if last_check_at > Time.now - opts[:check_interval]
+
+        ret.merge!(
+          last_checked_for_update: last_check_at,
+          next_check_for_update: last_check_at + opts[:check_interval]
+        )
+
+        return ret if last_check_at + opts[:check_interval] > Time.now && !opts[:force_check]
 
         checker = GemUpdateChecker::Client.new(ret[:gem_name], ret[:gem_installed_version])
         last_check_at = Time.now
@@ -73,7 +79,7 @@ module BB
           gem_update_available: checker.update_available
         )
 
-        FileUtils.touch(statefile_path) if ret[:installed_is_latest]
+        FileUtils.touch(statefile_path, mtime: Time.now) if ret[:installed_is_latest] || opts[:force_check]
 
         ret
       end
