@@ -33,4 +33,6 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rubocop'
 
   gem.add_dependency 'gem_update_checker'
+  gem.add_dependency 'lolcat'
+  gem.add_dependency 'rainbow'
 end
