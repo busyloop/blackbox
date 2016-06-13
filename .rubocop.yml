@@ -2,19 +2,19 @@ AllCops:
   TargetRubyVersion: 2.3
 
 Metrics/AbcSize:
-  Max: 57
+  Max: 200
 
 Metrics/CyclomaticComplexity:
-  Max: 12
+  Max: 42
 
 Metrics/LineLength:
   Max: 133
 
 Metrics/MethodLength:
-  Max: 55
+  Max: 100
 
 Metrics/PerceivedComplexity:
-  Max: 13
+  Max: 42
 
 Style/FormatString:
   Exclude:
