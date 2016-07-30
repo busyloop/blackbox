@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require 'openssl'
 require 'base64'
+require 'chronic_duration'
 
 module BB
   # Crypto utilities.
@@ -93,5 +94,48 @@ module BB
         decrypt(Base64.urlsafe_decode64(ciphertext), key, cipher_type, iv)
       end
     end
-  end
+
+    # Secure Control Token.
+    class ControlToken
+      class << self
+        # Encode and encrypt an urlsafe ControlToken.
+        #
+        # @param [String] op Operation id
+        # @param [Array] args Arguments (Strings)
+        # @param [Fixnum] expire_in
+        # @param [String] key Encryption key
+        # @param [String] cipher_type OpenSSL cipher
+        # @return [String] ControlToken (urlsafe base64)
+        def create(op, args, expire_in = 900, key = ENV['CONTROLTOKEN_SECRET'], cipher_type = 'aes-256-cbc')
+          raise ArgumentError, 'key can not be blank' if key.nil? || key.empty?
+          # If you're reading this in the year 2038: Hi there! :-)
+          [Time.now.to_i + expire_in].pack('l<')
+          body = ([[Time.now.to_i + expire_in].pack('l<'), op] + args).join("\x00")
+          BB::Crypto.encrypt_urlsafe_base64(body, key, cipher_type)
+        end
+
+        # Decrypt and parse an urlsafe ControlToken.
+        #
+        # @param [String] token Input String (urlsafe base64)
+        # @param [String] key Encryption key
+        # @param [Boolean] force Decode expired token (suppress ArgumentError)
+        # @param [String] cipher_type OpenSSL cipher
+        # @return [Hash] Token payload
+        def parse(token, key = ENV['CONTROLTOKEN_SECRET'], force = false, cipher_type = 'aes-256-cbc')
+          raise ArgumentError, 'key can not be blank' if key.nil? || key.empty?
+          body = BB::Crypto.decrypt_urlsafe_base64(token, key, cipher_type)
+          valid_until, op, *args = body.split("\x00")
+          valid_until = valid_until.unpack('l<')[0]
+          expired = Time.now.to_i > valid_until
+          if expired && !force
+            raise ArgumentError, "Token expired at #{Time.at(valid_until)} (#{ChronicDuration.output(Time.now.to_i - valid_until)} ago)"
+          end
+          { valid_until: valid_until,
+            op: op,
+            args: args,
+            expired: expired }
+        end
+      end
+    end # /BB::Crypto::Token
+  end # /BB::Crypto
 end
