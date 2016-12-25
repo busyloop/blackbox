@@ -16,7 +16,7 @@ module BB
       # @return [String] When iv == nil: iv_length+iv+ciphertext
       # @return [String] When iv != nil: ciphertext
       def encrypt(plaintext, key, cipher_type = 'aes-256-cbc', iv = nil)
-        cipher = OpenSSL::Cipher::Cipher.new(cipher_type)
+        cipher = OpenSSL::Cipher.new(cipher_type)
         cipher.encrypt
         cipher.key = key
         if iv.nil?
@@ -36,7 +36,7 @@ module BB
       # @param [String] iv Initialization vector
       # @return [String] Plaintext
       def decrypt(ciphertext, key, cipher_type = 'aes-256-cbc', iv = nil)
-        cipher = OpenSSL::Cipher::Cipher.new(cipher_type)
+        cipher = OpenSSL::Cipher.new(cipher_type)
         cipher.decrypt
         cipher.key = key
         if iv.nil?

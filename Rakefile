@@ -11,9 +11,9 @@ RSpec::Core::RakeTask.new('test:spec') do |t|
 
   extra_opts = []
   extra_opts << if e.nil? && f.nil?
-                  '-f progress'
+                  '-f progress --fail-fast'
                 else
-                  '--color --fail-fast -f documentation'
+                  '--color -f documentation'
                 end
 
   extra_opts << " -e #{e}" unless e.nil?
