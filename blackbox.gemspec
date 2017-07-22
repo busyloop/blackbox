@@ -18,7 +18,7 @@ Gem::Specification.new do |gem|
   gem.executables   = gem.files.grep(%r{^bin/}) { |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
-  gem.required_ruby_version = '>= 2.4.0'
+  gem.required_ruby_version = '>= 2.3.0'
 
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec'
@@ -34,7 +34,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'gem_update_checker', '~> 0.2.0'
   gem.add_dependency 'lolcat', '~> 42.1.43'
-  gem.add_dependency 'rainbow', '~> 2.1.0'
+  gem.add_dependency 'rainbow', '~> 2.2.0'
   gem.add_dependency 'chronic_duration', '~> 0.10.6'
   gem.add_dependency 'versionomy', '~> 0.5.0'
 end
