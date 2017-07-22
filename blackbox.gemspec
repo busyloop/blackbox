@@ -36,4 +36,5 @@ Gem::Specification.new do |gem|
   gem.add_dependency 'lolcat', '~> 42.1.43'
   gem.add_dependency 'rainbow', '~> 2.1.0'
   gem.add_dependency 'chronic_duration', '~> 0.10.6'
+  gem.add_dependency 'versionomy', '~> 0.5.0'
 end

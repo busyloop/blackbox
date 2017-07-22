@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'versionomy'
 module BB
   # Gem utilities.
   module Gem
@@ -77,7 +78,7 @@ module BB
           last_checked_for_update: last_check_at,
           next_check_for_update: last_check_at + opts[:check_interval],
           installed_is_latest: ret[:gem_installed_version] == checker.latest_version,
-          gem_update_available: checker.update_available
+          gem_update_available: Versionomy.parse(ret[:gem_installed_version]) < Versionomy.parse(checker.latest_version)
         )
 
         if ret[:installed_is_latest] || opts[:force_check]
