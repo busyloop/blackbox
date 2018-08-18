@@ -1,11 +1,12 @@
 # frozen_string_literal: true
+
 require 'blackbox/hash'
 
 module BB
   # String utilities.
   module Number
     class << self
-      STORAGE_UNITS = %w(byte k M G T P E Z Y).freeze
+      STORAGE_UNITS = %w[byte k M G T P E Z Y].freeze
 
       ##
       # Formats the bytes in +number+ into a more understandable representation
@@ -46,7 +47,7 @@ module BB
       def to_human_size(number, args = {})
         begin
            Float(number)
-         rescue
+         rescue StandardError
            return nil
          end
 
@@ -77,7 +78,7 @@ module BB
                                               delimiter: delimiter).sub(/(#{escaped_separator})(\d*[1-9])?0+\z/, '\1\2').sub(/#{escaped_separator}\z/, '')
             storage_units_format.gsub(/%n/, formatted_number).gsub(/%u/, unit)
           end
-        rescue
+        rescue StandardError
           number
         end
       end
@@ -112,7 +113,7 @@ module BB
       def with_precision(number, args)
         begin
            Float(number)
-         rescue
+         rescue StandardError
            return nil
          end
 
@@ -127,7 +128,7 @@ module BB
           with_delimiter("%01.#{precision}f" % rounded_number,
                          separator: separator,
                          delimiter: delimiter)
-        rescue
+        rescue StandardError
           number
         end
       end
@@ -160,7 +161,7 @@ module BB
       def with_delimiter(number, args = {})
         begin
            Float(number)
-         rescue
+         rescue StandardError
            return nil
          end
         options = BB::Hash.symbolize_keys(args)
@@ -172,7 +173,7 @@ module BB
           parts = number.to_s.split('.')
           parts[0].gsub!(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1#{delimiter}")
           parts.join(separator)
-        rescue
+        rescue StandardError
           number
         end
       end

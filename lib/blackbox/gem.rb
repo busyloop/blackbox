@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'versionomy'
 module BB
   # Gem utilities.
@@ -59,7 +60,7 @@ module BB
         last_check_at = nil
         begin
           last_check_at = File.stat(statefile_path).mtime
-        rescue
+        rescue StandardError
           last_check_at = Time.at(0)
         end
 

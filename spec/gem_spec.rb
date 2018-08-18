@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'spec_helper'
 require 'timecop'
 require 'blackbox/gem'
@@ -44,7 +45,6 @@ describe BB::Gem do
         expect(retval).to include(
           next_check_for_update: Time.parse('2015-10-22 00:00'),
           gem_latest_version: :unknown
-
         )
       end
     end

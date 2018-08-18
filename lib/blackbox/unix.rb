@@ -1,6 +1,6 @@
 # frozen_string_literal: true
+
 require 'lolcat/lol'
-require 'thread'
 require 'open3'
 require 'pty'
 require 'rainbow/ext/string'
@@ -48,7 +48,7 @@ module BB
               i = 0
               loop do
                 break if @minispin_last_char_at == :end
-                if 0.23 > Time.now - @minispin_last_char_at || @minispin_disable
+                if Time.now - @minispin_last_char_at < 0.23 || @minispin_disable
                   sleep 0.1
                   next
                 end
@@ -91,10 +91,10 @@ module BB
               @tspin = nil
             end
           else
-            opts[:spinner].call(true) if opts[:spinner]
+            opts[:spinner]&.call(true)
             output, status = Open3.capture2e(line)
-            opts[:spinner].call(false) if opts[:spinner]
-            color = (status.exitstatus == 0) ? :green : :red
+            opts[:spinner]&.call(false)
+            color = status.exitstatus == 0 ? :green : :red
             if status.exitstatus != 0 || !opts[:quiet]
               puts "\n> ".color(color) + line.color(:black).bright
               puts output

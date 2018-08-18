@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'openssl'
 require 'base64'
 require 'chronic_duration'
@@ -41,7 +42,7 @@ module BB
         cipher.key = key
         if iv.nil?
           iv_len = ciphertext.slice!(0).unpack('C')[0]
-          cipher.iv = ciphertext.slice!(0..iv_len - 1) unless 0 == iv_len
+          cipher.iv = ciphertext.slice!(0..iv_len - 1) unless iv_len == 0
         else
           cipher.iv = iv
         end
@@ -127,9 +128,7 @@ module BB
           valid_until, op, *args = body.split("\x00")
           valid_until = valid_until.unpack('l<')[0]
           expired = Time.now.to_i > valid_until
-          if expired && !force
-            raise ArgumentError, "Token expired at #{Time.at(valid_until)} (#{ChronicDuration.output(Time.now.to_i - valid_until)} ago)"
-          end
+          raise ArgumentError, "Token expired at #{Time.at(valid_until)} (#{ChronicDuration.output(Time.now.to_i - valid_until)} ago)" if expired && !force
           { valid_until: valid_until,
             op: op,
             args: args,

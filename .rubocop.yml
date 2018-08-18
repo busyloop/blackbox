@@ -23,3 +23,24 @@ Style/FormatString:
 Performance/RedundantMerge:
   Exclude:
       - 'lib/blackbox/gem.rb'
+
+Metrics/BlockLength:
+  Max: 420
+
+Naming/UncommunicativeMethodParamName:
+  Exclude:
+    - lib/blackbox/gem.rb
+    - lib/blackbox/crypto.rb
+
+Performance/Caller:
+  Exclude:
+    - lib/blackbox/gem.rb
+
+Style/NumericPredicate:
+  Exclude:
+    - lib/blackbox/crypto.rb
+    - lib/blackbox/unix.rb
+
+Style/CommentedKeyword:
+  Exclude:
+    - lib/blackbox/crypto.rb
